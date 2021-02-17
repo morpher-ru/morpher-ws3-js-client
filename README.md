@@ -337,14 +337,14 @@ morpher.ukrainian.declension('Крутько Катерина Володимир
 
 * `рід` (`gender`) &mdash; род (чоловічий, жіночий);
 
-Украинская версия лучше всего справляется с именами, фамилиями и отчествами.
+Украинская версия пока обрабатывает только имена, фамилии и отчества.
 
 #### Флаги для разрешения неоднозначностей
 
 ```javascript
-morpher.ukrainian.declension('Любовь Соколова', Morpher.FLAG_FEMININE).then(
+morpher.ukrainian.declension('Карен', Morpher.FLAG_FEMININE).then(
     result => {
-      console.log(result['родовий']); // Любовь Соколової
+      console.log(result['родовий']); // Карен (женское имя не склоняется)
     }
 );
 ```
@@ -361,8 +361,8 @@ morpher.ukrainian.declension('Любовь Соколова', Morpher.FLAG_FEMIN
 ### Пропись чисел и согласование с числом на украинском языке
 
 Метод `ukrainian.spell(number, unit)` решает задачу получения прописи числа
-(одна тисяча сто двадцять п'ять) и согласование единицы измерения с предшествующем числом (один попугай, два попугайи,
-п'ять попугайів):
+(одна тисяча сто двадцять п'ять) и согласование единицы измерения с предшествующем числом (один рубль, два рубля,
+п'ять рублів):
 
 ```javascript
 morpher.ukrainian.spell(235, 'рубль').then(
@@ -383,13 +383,15 @@ morpher.ukrainian.spell(235, 'рубль').then(
 Для склонения слов и словосочетаний используется метод `qazaq.declension(phrase)`:
 
 ```javascript
-morpher.qazaq.declension('Нұрсултан Әбішұлы Назарбаев').then(
+morpher.qazaq.declension('менеджер').then(
     result => {
-      console.log(result['ілік']);          // Нұрсултан Әбішұлы Назарбаевтың
-      console.log(result.genitive);         // Нұрсултан Әбішұлы Назарбаевтың
+      console.log(result['ілік']);          // менеджердің
+      console.log(result.genitive);         // менеджердің
 
-      console.log(result['көпше']['ілік']); // Нұрсултан Әбішұлы Назарбаевтартың
-      console.log(result.plural.genitive);  // Нұрсултан Әбішұлы Назарбаевтартың
+      console.log(result['көпше']['ілік']); // менеджерлердің
+      console.log(result.plural.genitive);  // менеджерлердің
+
+      console.log(result['көпше']['біздің']['ілік']); // менеджерлеріміздің
     }
 );
 ```
