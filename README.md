@@ -572,6 +572,20 @@ $ npm run test:e2e
 $ npm build
 ```
 
+### Выпуск нового релиза
+
+ * Увеличить версию в package.json.
+ * [Добавить новый релиз](https://github.com/morpher-ru/morpher-ws3-js-client/releases) на Гитхабе.
+
+Примерно через минуту новый пакет должен появиться на [npmjs.com](https://www.npmjs.com/package/morpher-ws3-client),
+если перед этим были произведены следующие настройки:
+
+На [странице настроек](https://travis-ci.com/github/morpher-ru/morpher-ws3-js-client/settings) 
+в Travis-CI должны быть указаны Environment Variables:
+
+ * GITHUB_TOKEN [отсюда](https://github.com/settings/tokens) (с разрешением write:packages)
+ * NPM_API_TOKEN [отсюда](https://www.npmjs.com/settings/morpher/tokens)
+
 ## License
 
 [MIT](LICENSE)
