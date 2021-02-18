@@ -563,7 +563,7 @@ $ npm test
 e2e:
 
 ```sh
-$ npm test:e2e
+$ npm run test:e2e
 ```
 
 ### Сборка
