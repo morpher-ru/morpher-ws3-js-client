@@ -4,8 +4,8 @@
   "description": "JavaScript-клиент веб-сервиса \"Морфер\" 3.0",
   "main": "./index.js",
   "scripts": {
-    "test": "NODE_ENV=test ./node_modules/.bin/mocha \"test/unit/**/*.test.js\" -R spec",
-    "test:e2e": "NODE_ENV=test ./node_modules/.bin/mocha \"test/e2e/**/*.test.js\" -R spec",
+    "test": "./node_modules/.bin/mocha \"test/unit/**/*.test.js\" -R spec",
+    "test:e2e": "./node_modules/.bin/mocha \"test/e2e/**/*.test.js\" -R spec",
     "build": "npm test && rollup -c && zip morpher.zip -r -j dist"
   },
   "repository": {
